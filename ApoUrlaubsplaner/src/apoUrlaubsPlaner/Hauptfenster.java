@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 public class Hauptfenster extends JPanel
 {
+	JPanel menu = new JPanel(new GridLayout(0,1));
 	JPanel panelMA = new JPanel(new GridLayout(0,1));		
 	JPanel panelMo = new JPanel(new GridLayout(0,2));		
 	JPanel panelDi = new JPanel(new GridLayout(0,2));

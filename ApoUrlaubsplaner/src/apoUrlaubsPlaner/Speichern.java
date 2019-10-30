@@ -10,8 +10,8 @@ public class Speichern {
 	
 	ButtonSpeicher buttonSpeicherKlasse;
 	ButtonSpeicher buttonSpeicherKlasseGeladen = new ButtonSpeicher();
-	String pfad = System.getProperty("user.home") + "/Dropbox/HP Laptop/Urlaubsplaner2.tmp";
-	String pfadJPG = System.getProperty("user.home") + "/Dropbox/HP Laptop/UrlaubsplanerJPG.jpg";
+	String pfad = System.getProperty("user.home") + "/Dropbox/HP Laptop/Urlaubsplaner2020Test.tmp";
+	String pfadJPG = System.getProperty("user.home") + "/Dropbox/HP Laptop/UrlaubsplanerJPG2020Test.jpg";
 	FileWriter fileWriter;
 	FileReader fileReader;
 	File file;
