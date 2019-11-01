@@ -9,7 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 public class Hauptfenster extends JPanel
 {
-	JPanel menu = new JPanel(new GridLayout(7,1));
+	JPanel menu = new JPanel(new GridLayout(9,1));
 	JPanel panelMA = new JPanel(new GridLayout(0,1));		
 	JPanel panelMo = new JPanel(new GridLayout(0,2));		
 	JPanel panelDi = new JPanel(new GridLayout(0,2));
@@ -205,9 +205,8 @@ public class Hauptfenster extends JPanel
 		// Menübereich
 		JLabel menuLabel = new JLabel("Menü", JLabel.CENTER);
 		menuLabel.setOpaque(true);
-		menuLabel.setBackground(new Color(90, 170, 180));
+		menuLabel.setBackground(new Color(190, 190, 190));
 		menuLabel.setFont(new Font("Arial", 1, 14));
-		menuLabel.setSize(50, 30);
 		menu.add(menuLabel);
 		JButton mitarbeiter = new JButton("Mitarbeiter bearbeiten");
 		mitarbeiter.setOpaque(true);
