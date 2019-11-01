@@ -9,7 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 public class Hauptfenster extends JPanel
 {
-	JPanel menu = new JPanel(new GridLayout(0,1));
+	JPanel menu = new JPanel(new GridLayout(7,1));
 	JPanel panelMA = new JPanel(new GridLayout(0,1));		
 	JPanel panelMo = new JPanel(new GridLayout(0,2));		
 	JPanel panelDi = new JPanel(new GridLayout(0,2));
@@ -17,7 +17,8 @@ public class Hauptfenster extends JPanel
 	JPanel panelDo = new JPanel(new GridLayout(0,2));
 	JPanel panelFr = new JPanel(new GridLayout(0,2));
 	JPanel woche = new JPanel(new GridLayout(1,6));
-	JPanel main = new JPanel(new GridLayout(0,1));
+	JPanel scrollbereich = new JPanel(new GridLayout(0,1));
+	JPanel main = new JPanel(new BorderLayout());
 	JFrame fenster = new JFrame("Apotheken Urlaubsplaner");
 	Datum datum = new Datum();
 	Dienstplan dp = new Dienstplan();
@@ -44,7 +45,7 @@ public class Hauptfenster extends JPanel
 				System.exit(0);
 			}
 		});
-		fenster.setSize(1200, 900);
+		fenster.setSize(1300, 900);
 		fenster.setLocationRelativeTo(null);
 		baueFensterNeu();
 		Hinweisfenster hinweisFenster1 = new Hinweisfenster("Lade Datei...");
@@ -197,10 +198,30 @@ public class Hauptfenster extends JPanel
 			woche.add(panelMi);
 			woche.add(panelDo);
 			woche.add(panelFr);
-			main.add(woche);
+
+			scrollbereich.add(woche);
 		}
-		JScrollPane scrollPane = new JScrollPane(main);
-		fenster.add(scrollPane);
+		JScrollPane scrollPane = new JScrollPane(scrollbereich);
+		// Menübereich
+		JLabel menuLabel = new JLabel("Menü", JLabel.CENTER);
+		menuLabel.setOpaque(true);
+		menuLabel.setBackground(new Color(90, 170, 180));
+		menuLabel.setFont(new Font("Arial", 1, 14));
+		menuLabel.setSize(50, 30);
+		menu.add(menuLabel);
+		JButton mitarbeiter = new JButton("Mitarbeiter bearbeiten");
+		mitarbeiter.setOpaque(true);
+		mitarbeiter.setBackground(new Color(120,210,85));
+		mitarbeiter.setBorderPainted(true);
+		menu.add(mitarbeiter);
+		JButton dienstplan = new JButton("Dienstplan bearbeiten");
+		dienstplan.setOpaque(true);
+		dienstplan.setBackground(new Color(120,210,85));
+		dienstplan.setBorderPainted(true);
+		menu.add(dienstplan);
+		main.add(menu, BorderLayout.WEST);
+		main.add(scrollPane, BorderLayout.CENTER);
+		fenster.add(main);
 	}
 	
 	public Color gibFarbeFuerDienstplan(int mitarbeiter, int tag, int woche)
