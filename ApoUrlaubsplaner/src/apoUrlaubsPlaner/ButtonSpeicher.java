@@ -9,13 +9,31 @@ public class ButtonSpeicher implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	ArrayList<JButton> buttonSpeicherArrayList;
-	int[] urlaubsTageSpeicher = new int[12];
+	int[] urlaubsTageSpeicher;
 	JButton buttonGefunden;
+	ArrayList<String> mitarbeiter = new ArrayList<>();
+	int anzahlMA;
 	
 	public ButtonSpeicher()
 	{
 		buttonSpeicherArrayList = new ArrayList<JButton>();
-		for (int i = 0; i <= 11; i++)
+		mitarbeiter.add("Mähler");
+		mitarbeiter.add("Schröter");
+		mitarbeiter.add("Bauß");
+		mitarbeiter.add("Denner");
+		mitarbeiter.add("Krampf");
+		mitarbeiter.add("Heß");
+		mitarbeiter.add("Meingast");
+		mitarbeiter.add("Schmidt");
+		mitarbeiter.add("Schwalbe");
+		mitarbeiter.add("Stüber");
+		mitarbeiter.add("Bräuning");
+		mitarbeiter.add("Lückert");
+		mitarbeiter.add("Köhler");
+		
+		anzahlMA = mitarbeiter.size();
+		urlaubsTageSpeicher = new int[anzahlMA];
+		for (int i = 0; i < anzahlMA; i++)
 		{
 			urlaubsTageSpeicher[i] = 0;
 		}
@@ -52,28 +70,28 @@ public class ButtonSpeicher implements Serializable {
 	
 	public void aktualisiereUrlaubAufButton(JButton b)
 	{
-		int mitarbeiter = Integer.parseInt(b.getName().split(";")[0]);
+		int mitarbeiterInt = Integer.parseInt(b.getName().split(";")[0]);
 		for (int i = 1; i <= 52; i++) // alle Wochen
 		{				
-			buttonGefunden = sucheButtonNachNamen(mitarbeiter + ";" 
+			buttonGefunden = sucheButtonNachNamen(mitarbeiterInt + ";" 
 					+ i + ";" + 10);
-			if(buttonGefunden != null) buttonGefunden.setText(Mitarbeiter.values()[mitarbeiter-1] 
-					+ "  (" + gibUrlaubsTageSpeicher()[mitarbeiter-1] + ")");
+			if(buttonGefunden != null) buttonGefunden.setText(mitarbeiter.get(mitarbeiterInt-1) 
+					+ "  (" + gibUrlaubsTageSpeicher()[mitarbeiterInt-1] + ")");
 		}
 	}
 	public void aktualisiereUrlaubAufButtonAlleMitarbeiter()
 	{
-		for (int i = 0; i < 12; i++) // die ersten 10 Buttons: alle MA
+		for (int i = 0; i < anzahlMA; i++) // die ersten 10 Buttons: alle MA
 		{
 			if (Integer.parseInt(buttonSpeicherArrayList.get(i).getName().split(";")[2]) == 10)
 			{
-				int mitarbeiter = Integer.parseInt(buttonSpeicherArrayList.get(i).getName().split(";")[0]);
+				int mitarbeiterInt = Integer.parseInt(buttonSpeicherArrayList.get(i).getName().split(";")[0]);
 				for (int j = 1; j <= 52; j++) // alle Wochen
 				{				
-					buttonGefunden = sucheButtonNachNamen(mitarbeiter + ";" 
+					buttonGefunden = sucheButtonNachNamen(mitarbeiterInt + ";" 
 							+ j + ";" + 10);
-					if(buttonGefunden != null) buttonGefunden.setText(Mitarbeiter.values()[mitarbeiter-1] 
-							+ "  (" + gibUrlaubsTageSpeicher()[mitarbeiter-1] + ")");
+					if(buttonGefunden != null) buttonGefunden.setText(mitarbeiter.get(mitarbeiterInt-1)
+							+ "  (" + gibUrlaubsTageSpeicher()[mitarbeiterInt-1] + ")");
 				}
 			}
 		}

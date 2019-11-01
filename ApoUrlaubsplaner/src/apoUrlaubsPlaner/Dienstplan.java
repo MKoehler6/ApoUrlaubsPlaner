@@ -2,11 +2,14 @@ package apoUrlaubsPlaner;
 
 public class Dienstplan {
 	
-	public int[][][][] dienstplan = new int[12][2][5][2]; 
+	ButtonSpeicher buttonSpeicher;
+	public int[][][][] dienstplan;
 	//Mitarbeiter, gerade oder ungerade, Wochentag, vormittag oder nachmittag
 	
-	public Dienstplan()
+	public Dienstplan(ButtonSpeicher buttonSpeicher)
 	{
+		this.buttonSpeicher = buttonSpeicher;
+		dienstplan = new int[buttonSpeicher.anzahlMA][2][5][2]; 
 		mähler();
 		schröter();
 		bauß();

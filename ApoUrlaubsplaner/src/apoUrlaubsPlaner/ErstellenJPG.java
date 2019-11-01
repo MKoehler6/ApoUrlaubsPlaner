@@ -23,7 +23,7 @@ public class ErstellenJPG {
 	{
 		this.buttonSpeicher = buttonSpeicher;
 		this.datum = datum;
-		fertigesJPG = new BufferedImage(3100, 4070, BufferedImage.TYPE_INT_RGB);
+		fertigesJPG = new BufferedImage(3100, 5070, BufferedImage.TYPE_INT_RGB); // vorher 4070
 		pixels = ((DataBufferInt) fertigesJPG.getRaster().getDataBuffer()).getData();
 	}
 	
@@ -35,16 +35,16 @@ public class ErstellenJPG {
 				if (!(zeile == 11 && spalte > 2))
 				{
 					woche++;
-					zaehlerButtons = zaehlerButtons + 12;
-					for (int i = 0; i < 12; i++) // Mitarbeiter
-						renderImage(createImageWithText(Mitarbeiter.values()[i].toString(), 100, 25, Font.BOLD, 10), 10 + 620*(spalte-1), 36 + 26 * i + 370*(zeile-1));
-					for (int i = 0; i < 12; i++) // Urlaubstage
+					zaehlerButtons = zaehlerButtons + buttonSpeicher.anzahlMA;
+					for (int i = 0; i < buttonSpeicher.anzahlMA; i++) // Mitarbeiter
+						renderImage(createImageWithText(buttonSpeicher.mitarbeiter.get(i).toString(), 100, 25, Font.BOLD, 10), 10 + 620*(spalte-1), 36 + 26 * i + 370*(zeile-1));
+					for (int i = 0; i < buttonSpeicher.anzahlMA; i++) // Urlaubstage
 						renderImage(createImageWithText(buttonSpeicher.urlaubsTageSpeicher[i] + "", 25, 25, Font.PLAIN, 3), 112 + 620*(spalte-1), 36 + 26 * i + 370*(zeile-1));
 					for (int i = 0; i < 5; i++) // Wochentage
 					{ 
 						String datum = gibDatumDesTages(i, woche);
 						renderImage(createImageWithText(wochenTage[i] + "    " + datum, 91, 25, Font.BOLD, 5), 139 + 93 * i + 620*(spalte-1), 36 - 26 + 370*(zeile-1));
-						for (int ma = 0; ma < 12; ma++) 
+						for (int ma = 0; ma < buttonSpeicher.anzahlMA; ma++) 
 							for (int j = 0; j < 2; j++) // vormittag/nachmittag
 							{
 								renderImage(erstelleDienstplanFeld(45, 25), 139 + 93*i + 620*(spalte-1) + j*46, 36 + 26*ma + 370*(zeile-1));

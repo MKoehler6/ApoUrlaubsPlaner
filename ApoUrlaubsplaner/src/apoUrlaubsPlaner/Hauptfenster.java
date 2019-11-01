@@ -21,8 +21,8 @@ public class Hauptfenster extends JPanel
 	JPanel main = new JPanel(new BorderLayout());
 	JFrame fenster = new JFrame("Apotheken Urlaubsplaner");
 	Datum datum = new Datum();
-	Dienstplan dp = new Dienstplan();
 	ButtonSpeicher buttonSpeicher = new ButtonSpeicher();
+	Dienstplan dp = new Dienstplan(buttonSpeicher);
 	Speichern speichern = new Speichern(buttonSpeicher, datum);
 	public int[][][][] dienstplan = new int[12][2][5][2]; //Mitarbeiter, gerade oder ungerade, Wochentag, vormittag oder nachmittag
 	
@@ -69,9 +69,9 @@ public class Hauptfenster extends JPanel
 			datumLabel.setOpaque(true);
 			panelMA.add(datumLabel);
 	//		https://stackoverflow.com/questions/5654208/making-a-jbutton-invisible-but-clickable
-			for (int i = 1; i <=12; i++)
+			for (int i = 1; i <= buttonSpeicher.anzahlMA; i++)
 			{
-				JButton b = new JButton(Mitarbeiter.values()[i-1] + "  (" + buttonSpeicher.gibUrlaubsTageSpeicher()[i-1] + ")");
+				JButton b = new JButton(buttonSpeicher.mitarbeiter.get(i-1) + "  (" + buttonSpeicher.gibUrlaubsTageSpeicher()[i-1] + ")");
 				panelMA.add(b);
 				b.setName(i + ";" + wochen +";" + 10);// 10 heisst: kein spezieller Tag
 				b.setOpaque(true);
@@ -90,7 +90,7 @@ public class Hauptfenster extends JPanel
 			panelMo.add(new JLabel("vormittag"));
 			panelMo.add(new JLabel("nachmittag"));
 	//		https://stackoverflow.com/questions/5654208/making-a-jbutton-invisible-but-clickable
-			for (int i = 1; i <=24; i++)
+			for (int i = 1; i <= buttonSpeicher.anzahlMA*2; i++)
 			{
 				JButton b = new JButton();
 				panelMo.add(b);
@@ -112,7 +112,7 @@ public class Hauptfenster extends JPanel
 			panelDi.add(new JLabel("vormittag"));
 			panelDi.add(new JLabel("nachmittag"));
 	//		https://stackoverflow.com/questions/5654208/making-a-jbutton-invisible-but-clickable
-			for (int i = 1; i <=24; i++)
+			for (int i = 1; i <= buttonSpeicher.anzahlMA*2; i++)
 			{
 				JButton b = new JButton();
 				panelDi.add(b);
@@ -134,7 +134,7 @@ public class Hauptfenster extends JPanel
 			panelMi.add(new JLabel("vormittag"));
 			panelMi.add(new JLabel("nachmittag"));
 	//		https://stackoverflow.com/questions/5654208/making-a-jbutton-invisible-but-clickable
-			for (int i = 1; i <=24; i++)
+			for (int i = 1; i <= buttonSpeicher.anzahlMA*2; i++)
 			{
 				JButton b = new JButton();
 				panelMi.add(b);
@@ -156,7 +156,7 @@ public class Hauptfenster extends JPanel
 			panelDo.add(new JLabel("vormittag"));
 			panelDo.add(new JLabel("nachmittag"));
 			//		https://stackoverflow.com/questions/5654208/making-a-jbutton-invisible-but-clickable
-			for (int i = 1; i <=24; i++)
+			for (int i = 1; i <= buttonSpeicher.anzahlMA*2; i++)
 			{
 				JButton b = new JButton();
 				panelDo.add(b);
@@ -178,7 +178,7 @@ public class Hauptfenster extends JPanel
 			panelFr.add(new JLabel("vormittag"));
 			panelFr.add(new JLabel("nachmittag"));
 			//		https://stackoverflow.com/questions/5654208/making-a-jbutton-invisible-but-clickable
-			for (int i = 1; i <=24; i++)
+			for (int i = 1; i <= buttonSpeicher.anzahlMA*2; i++)
 			{
 				JButton b = new JButton();
 				panelFr.add(b);
