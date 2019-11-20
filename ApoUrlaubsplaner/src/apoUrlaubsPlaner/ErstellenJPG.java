@@ -37,7 +37,7 @@ public class ErstellenJPG {
 					woche++;
 					zaehlerButtons = zaehlerButtons + 12;
 					for (int i = 0; i < 12; i++) // Mitarbeiter
-						renderImage(createImageWithText(Mitarbeiter.values()[i].toString(), 100, 25, Font.BOLD, 10), 10 + 620*(spalte-1), 36 + 26 * i + 370*(zeile-1));
+						renderImage(createImageWithText(buttonSpeicher.mitarbeiterArrayList.get(i).toString(), 100, 25, Font.BOLD, 10), 10 + 620*(spalte-1), 36 + 26 * i + 370*(zeile-1));
 					for (int i = 0; i < 12; i++) // Urlaubstage
 						renderImage(createImageWithText(buttonSpeicher.urlaubsTageSpeicher[i] + "", 25, 25, Font.PLAIN, 3), 112 + 620*(spalte-1), 36 + 26 * i + 370*(zeile-1));
 					for (int i = 0; i < 5; i++) // Wochentage

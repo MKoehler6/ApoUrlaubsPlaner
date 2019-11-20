@@ -66,6 +66,7 @@ public class ButtonListener implements ActionListener{
 			buttonGefunden = buttonSpeicher.sucheButtonNachNamen(mitarbeiter + ";" 
 					+ woche + ";" + i + ";" + 1); // nachmittag
 			if(buttonGefunden != null) buttonGefunden.setBackground(new Color(255,69,0));
+			buttonSpeicher.mitarbeiterArrayList.get(mitarbeiter-1).tageImJahr[woche-1][i] = 2;
 		}
 		int urlaubstage = 5 - tageUrlaubInDieserWoche;
 		buttonSpeicher.fuegeUrlaubHinzu(urlaubstage, mitarbeiter);

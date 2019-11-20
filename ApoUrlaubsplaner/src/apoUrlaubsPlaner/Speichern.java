@@ -23,6 +23,14 @@ public class Speichern {
 		this.buttonSpeicherKlasse = buttonSpeicherKlasse;
 		this.datum = datum;
 		erstellenJPG = new ErstellenJPG(buttonSpeicherKlasse, datum);
+//		Hinweisfenster hinweisFenster1 = new Hinweisfenster("Lade Datei...");
+//		hinweisFenster1.hinweisFrame.setVisible(true);
+//		try {
+//			ladeDatei();
+//		} catch (IOException e1) {
+//			e1.printStackTrace();
+//		}
+//		hinweisFenster1.hinweisFrame.setVisible(false);
 	}
 
 	public void ladeDatei() throws IOException

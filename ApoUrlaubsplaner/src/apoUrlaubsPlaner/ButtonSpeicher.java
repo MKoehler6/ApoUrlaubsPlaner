@@ -9,16 +9,29 @@ public class ButtonSpeicher implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	ArrayList<JButton> buttonSpeicherArrayList;
-	int[] urlaubsTageSpeicher = new int[12];
+	int[] urlaubsTageSpeicher;
 	JButton buttonGefunden;
+	ArrayList<Mitarbeiter> mitarbeiterArrayList;
 	
 	public ButtonSpeicher()
 	{
 		buttonSpeicherArrayList = new ArrayList<JButton>();
-		for (int i = 0; i <= 11; i++)
+		mitarbeiterArrayList = new ArrayList<>();
+		mitarbeiterArrayList.add(new Mitarbeiter("Test1"));
+		mitarbeiterArrayList.add(new Mitarbeiter("Test2"));
+		urlaubsTageSpeicher = new int[mitarbeiterArrayList.size()];
+		for (int i = 0; i < mitarbeiterArrayList.size(); i++)
 		{
 			urlaubsTageSpeicher[i] = 0;
 		}
+	}
+	
+	public void vergroessereUrlaubsTageSpeicher() {
+		int[] temp = new int[urlaubsTageSpeicher.length + 1];
+		for (int i = 0; i < urlaubsTageSpeicher.length; i++) {
+			temp[i] = urlaubsTageSpeicher[i];
+		}
+		urlaubsTageSpeicher = temp;
 	}
 	
 	public int[] gibUrlaubsTageSpeicher()
@@ -57,7 +70,7 @@ public class ButtonSpeicher implements Serializable {
 		{				
 			buttonGefunden = sucheButtonNachNamen(mitarbeiter + ";" 
 					+ i + ";" + 10);
-			if(buttonGefunden != null) buttonGefunden.setText(Mitarbeiter.values()[mitarbeiter-1] 
+			if(buttonGefunden != null) buttonGefunden.setText(mitarbeiterArrayList.get(mitarbeiter-1).name 
 					+ "  (" + gibUrlaubsTageSpeicher()[mitarbeiter-1] + ")");
 		}
 	}
@@ -72,7 +85,7 @@ public class ButtonSpeicher implements Serializable {
 				{				
 					buttonGefunden = sucheButtonNachNamen(mitarbeiter + ";" 
 							+ j + ";" + 10);
-					if(buttonGefunden != null) buttonGefunden.setText(Mitarbeiter.values()[mitarbeiter-1] 
+					if(buttonGefunden != null) buttonGefunden.setText(mitarbeiterArrayList.get(mitarbeiter-1).name 
 							+ "  (" + gibUrlaubsTageSpeicher()[mitarbeiter-1] + ")");
 				}
 			}
