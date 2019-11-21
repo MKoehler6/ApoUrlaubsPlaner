@@ -53,6 +53,7 @@ public class Hauptfenster extends JPanel
 			}
 		});
 		fenster.setVisible(true);
+		// eine Testmessage für GitHub
 	}
 	
 	public void baueFensterNeu() 
