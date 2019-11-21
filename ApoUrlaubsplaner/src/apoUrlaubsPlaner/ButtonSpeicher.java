@@ -91,4 +91,17 @@ public class ButtonSpeicher implements Serializable {
 			}
 		}
 	}
+	
+	public void aktualisiereButtonSpeicherArrayList() 
+	{
+		ArrayList<JButton> buttonSpeicherArrayListTemp = new ArrayList<JButton>();
+		int zaehler = 0;
+		while (zaehler < buttonSpeicherArrayList.size()) {
+			for (int j = 0; j < mitarbeiterArrayList.size()-1; j++) { // alle MA außer dem zuletzt hinzugefügten
+				buttonSpeicherArrayListTemp.add(buttonSpeicherArrayList.get(zaehler));
+				zaehler++;
+			}
+			
+		}
+	}
 }

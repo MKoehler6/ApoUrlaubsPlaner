@@ -82,22 +82,13 @@ public class Hauptfenster extends JPanel
 				panelFr.removeAll();
 				woche.removeAll();
 				
-//				menu.removeAll();
-//				fenster.validate();
 				buttonSpeicher.mitarbeiterArrayList.add(new Mitarbeiter("Test3"));
+				buttonSpeicher.aktualisiereButtonSpeicherArrayList();
 				buttonSpeicher.buttonSpeicherArrayList.clear();
 				buttonSpeicher.vergroessereUrlaubsTageSpeicher();
 				for (Mitarbeiter m : buttonSpeicher.mitarbeiterArrayList) m.kontrollausgabe();
-//				JPane7l neu = new JPanel();
-//				test = new JButton("Test");
-//				neu.add(test);
-//				menu.add(neu);
-//				menu.revalidate();
-//				scrollbereich.add(test);
-//				baueFensterNeu();
 				baueScrollBereichNeu();
 				scrollbereich.revalidate();
-//				scrollbereich = new JPanel(new GridLayout(0,1));
 				fenster.repaint();
 			}
 		});
