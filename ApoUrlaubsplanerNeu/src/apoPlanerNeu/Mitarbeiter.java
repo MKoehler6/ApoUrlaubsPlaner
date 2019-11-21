@@ -2,7 +2,7 @@ package apoPlanerNeu;
 
 
 public enum Mitarbeiter {
-	Mähler, Schröter, Bauß, Denner, Krampf, Fuß, Heß, Meingast, Schmidt, Schwalbe, Lückert 
+	MÃ¤hler, SchrÃ¶ter, BauÃŸ, Denner, Krampf, FuÃŸ, HeÃŸ, Meingast, Schmidt, Schwalbe, LÃ¼ckert 
 
 }
 

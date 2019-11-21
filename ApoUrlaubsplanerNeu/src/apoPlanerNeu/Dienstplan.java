@@ -7,9 +7,9 @@ public class Dienstplan {
 	
 	public Dienstplan()
 	{
-		mähler();
-		schröter();
-		bauß();
+		mÃ¤hler();
+		schrÃ¶ter();
+		bauÃŸ();
 		denner();
 		krampf();
 		fuss();
@@ -25,7 +25,7 @@ public class Dienstplan {
 		return dienstplan;
 	}
 	
-	void mähler()
+	void mÃ¤hler()
 	{
 		int mitarbeiterNummer = 0;
 		//gerade
@@ -51,7 +51,7 @@ public class Dienstplan {
 		dienstplan[mitarbeiterNummer][1][4][0] = 1;
 		dienstplan[mitarbeiterNummer][1][4][1] = 0;
 	}
-	void schröter()
+	void schrÃ¶ter()
 	{
 		int mitarbeiterNummer = 1;
 		//gerade
@@ -77,7 +77,7 @@ public class Dienstplan {
 		dienstplan[mitarbeiterNummer][1][4][0] = 1;
 		dienstplan[mitarbeiterNummer][1][4][1] = 1;
 	}
-	void bauß()
+	void bauÃŸ()
 	{
 		int mitarbeiterNummer = 2;
 		//gerade
